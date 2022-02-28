@@ -11,7 +11,6 @@ app.use(express.json({type: '*/*'}));
 // Set your routes
 app.get('/', (req, res) => res.send('Hello World!'))
 app.post('/', function (req, res) {
-    
     res.send(`Received object. ${JSON.stringify(req.body)}`);
 
 });
@@ -20,7 +19,7 @@ app.post('/share', (req, res) => {
     let id = uid(16);
     console.log(id);
     objs[id] = req.body;
-//    console.log(`This is body: ${req.body}`);
+    //console.log(`This is body: ${req.body}`);
     res.send({success:true, link: `http://localhost:3000/${id}`});
 });
 
